@@ -45,13 +45,14 @@
             $job = $_POST['job'];
             $date = date("Y-m-d");
             // Insert data
-            $sql_insert = "INSERT INTO Registration_new (name, email, job, date) 
-                        VALUES (?,?,?,?)";
+            $sql_insert = "INSERT INTO Registration_new (id, name, email, job, date) 
+                        VALUES (?,?,?,?,?)";
             $stmt = $conn->prepare($sql_insert);
-            $stmt->bindValue(1, $name);
-            $stmt->bindValue(2, $email);
-            $stmt->bindValue(3, $job);
-            $stmt->bindValue(4, $date);
+            $stmt->bindValue(1, '';
+            $stmt->bindValue(2, $name);
+            $stmt->bindValue(3, $email);
+            $stmt->bindValue(4, $job);
+            $stmt->bindValue(5, $date);
             $stmt->execute();
         } catch(Exception $e) {
             echo "Failed: " . $e;
